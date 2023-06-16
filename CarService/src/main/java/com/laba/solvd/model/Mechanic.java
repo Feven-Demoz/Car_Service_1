@@ -1,5 +1,5 @@
 package com.laba.solvd.model;
-
+import java.util.List;
 import java.util.Objects;
 
 public class Mechanic {
@@ -8,14 +8,17 @@ public class Mechanic {
     private String lastName;
     private int experienceYear;
     private double hourlyRate;
+    private List<ServiceRecord> serviceRecordList;
 
-    public Mechanic(int id, String firstName, String lastName, int experienceYear, double hourlyRate) {
+    public Mechanic(int id, String firstName, String lastName, int experienceYear, double hourlyRate, List<ServiceRecord> serviceRecordList) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.experienceYear = experienceYear;
         this.hourlyRate = hourlyRate;
+        this.serviceRecordList = serviceRecordList;
     }
+
     public Mechanic(){
 
     }
@@ -60,6 +63,14 @@ public class Mechanic {
         this.hourlyRate = hourlyRate;
     }
 
+    public List<ServiceRecord> getServiceRecordList() {
+        return serviceRecordList;
+    }
+
+    public void setServiceRecordList(List<ServiceRecord> serviceRecordList) {
+        this.serviceRecordList = serviceRecordList;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,6 +92,7 @@ public class Mechanic {
                 ", lastName='" + lastName + '\'' +
                 ", experienceYear=" + experienceYear +
                 ", hourlyRate=" + hourlyRate +
+                ", serviceRecordList=" + serviceRecordList +
                 '}';
     }
 }

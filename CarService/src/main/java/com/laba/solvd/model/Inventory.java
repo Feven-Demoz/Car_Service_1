@@ -3,34 +3,20 @@ package com.laba.solvd.model;
 import java.util.Objects;
 
 public class Inventory {
-    private int suppliesId;
-    private int partsId;
-    private int quantity;
 
-    public Inventory(int suppliesId, int partsId, int quantity) {
-        this.suppliesId = suppliesId;
-        this.partsId = partsId;
+    private int quantity;
+    private Supply supply;
+    private Part part;
+
+    public Inventory(int quantity, Supply supply, Part part) {
         this.quantity = quantity;
+        this.supply = supply;
+        this.part = part;
     }
+
     public Inventory(){
 
     }
-    public int getSuppliesId() {
-        return suppliesId;
-    }
-
-    public void setSuppliesId(int suppliesId) {
-        this.suppliesId = suppliesId;
-    }
-
-    public int getPartsId() {
-        return partsId;
-    }
-
-    public void setPartsId(int partsId) {
-        this.partsId = partsId;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -39,25 +25,41 @@ public class Inventory {
         this.quantity = quantity;
     }
 
+    public Supply getSupply() {
+        return supply;
+    }
+
+    public void setSupply(Supply supply) {
+        this.supply = supply;
+    }
+
+    public Part getPart() {
+        return part;
+    }
+
+    public void setPart(Part part) {
+        this.part = part;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Inventory inventory = (Inventory) o;
-        return getSuppliesId() == inventory.getSuppliesId() && getPartsId() == inventory.getPartsId() && getQuantity() == inventory.getQuantity();
+        return getQuantity() == inventory.getQuantity() && Objects.equals(getSupply(), inventory.getSupply()) && Objects.equals(getPart(), inventory.getPart());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getSuppliesId(), getPartsId(), getQuantity());
+        return Objects.hash(getQuantity(), getSupply(), getPart());
     }
 
     @Override
     public String toString() {
         return "Inventory{" +
-                "suppliesId=" + suppliesId +
-                ", partsId=" + partsId +
-                ", quantity=" + quantity +
+                "quantity=" + quantity +
+                ", supply=" + supply +
+                ", part=" + part +
                 '}';
     }
 }

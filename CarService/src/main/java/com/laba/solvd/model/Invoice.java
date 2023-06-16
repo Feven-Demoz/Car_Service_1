@@ -7,16 +7,17 @@ public class Invoice {
     private int id;
     private double totalAmount;
     private Date date;
-    private int serviceRecordId;
-    private int customersId;
+    private ServiceRecord serviceRecord;
+    private Customer customer;
 
-    public Invoice(int id, double totalAmount, Date date, int serviceRecordId, int customersId) {
+    public Invoice(int id, double totalAmount, Date date, ServiceRecord serviceRecord, Customer customer) {
         this.id = id;
         this.totalAmount = totalAmount;
         this.date = date;
-        this.serviceRecordId = serviceRecordId;
-        this.customersId = customersId;
+        this.serviceRecord = serviceRecord;
+        this.customer = customer;
     }
+
     public Invoice(){
 
     }
@@ -45,20 +46,20 @@ public class Invoice {
         this.date = date;
     }
 
-    public int getServiceRecordId() {
-        return serviceRecordId;
+    public ServiceRecord getServiceRecord() {
+        return serviceRecord;
     }
 
-    public void setServiceRecordId(int serviceRecordId) {
-        this.serviceRecordId = serviceRecordId;
+    public void setServiceRecord(ServiceRecord serviceRecord) {
+        this.serviceRecord = serviceRecord;
     }
 
-    public int getCustomersId() {
-        return customersId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomersId(int customersId) {
-        this.customersId = customersId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
@@ -66,12 +67,12 @@ public class Invoice {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Invoice invoice = (Invoice) o;
-        return getId() == invoice.getId() && Double.compare(invoice.getTotalAmount(), getTotalAmount()) == 0 && getServiceRecordId() == invoice.getServiceRecordId() && getCustomersId() == invoice.getCustomersId() && Objects.equals(getDate(), invoice.getDate());
+        return getId() == invoice.getId() && Double.compare(invoice.getTotalAmount(), getTotalAmount()) == 0 && Objects.equals(getDate(), invoice.getDate()) && Objects.equals(getServiceRecord(), invoice.getServiceRecord()) && Objects.equals(getCustomer(), invoice.getCustomer());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTotalAmount(), getDate(), getServiceRecordId(), getCustomersId());
+        return Objects.hash(getId(), getTotalAmount(), getDate(), getServiceRecord(), getCustomer());
     }
 
     @Override
@@ -80,8 +81,8 @@ public class Invoice {
                 "id=" + id +
                 ", totalAmount=" + totalAmount +
                 ", date=" + date +
-                ", serviceRecordId=" + serviceRecordId +
-                ", customersId=" + customersId +
+                ", serviceRecord=" + serviceRecord +
+                ", customer=" + customer +
                 '}';
     }
 }

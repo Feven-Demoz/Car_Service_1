@@ -6,16 +6,17 @@ import java.util.Objects;
 public class Appointment {
     private int id;
     private int carId;
-    private int customersId;
     private Date appointmentDate;
     private String serviceType;
+    private Customer customer;
 
-    public Appointment(int id, int carId, int customersId, Date appointmentDate, String serviceType) {
+
+    public Appointment(int id, int carId, Date appointmentDate, String serviceType, Customer customer) {
         this.id = id;
         this.carId = carId;
-        this.customersId = customersId;
         this.appointmentDate = appointmentDate;
         this.serviceType = serviceType;
+        this.customer = customer;
     }
 
     public int getId() {
@@ -34,12 +35,12 @@ public class Appointment {
         this.carId = carId;
     }
 
-    public int getCustomersId() {
-        return customersId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomersId(int customersId) {
-        this.customersId = customersId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Date getAppointmentDate() {
@@ -63,12 +64,12 @@ public class Appointment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Appointment that = (Appointment) o;
-        return getId() == that.getId() && getCarId() == that.getCarId() && getCustomersId() == that.getCustomersId() && Objects.equals(getAppointmentDate(), that.getAppointmentDate()) && Objects.equals(getServiceType(), that.getServiceType());
+        return getId() == that.getId() && getCarId() == that.getCarId() && Objects.equals(getAppointmentDate(), that.getAppointmentDate()) && Objects.equals(getServiceType(), that.getServiceType()) && Objects.equals(getCustomer(), that.getCustomer());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getCarId(), getCustomersId(), getAppointmentDate(), getServiceType());
+        return Objects.hash(getId(), getCarId(), getAppointmentDate(), getServiceType(), getCustomer());
     }
 
     @Override
@@ -76,9 +77,9 @@ public class Appointment {
         return "Appointment{" +
                 "id=" + id +
                 ", carId=" + carId +
-                ", customersId=" + customersId +
                 ", appointmentDate=" + appointmentDate +
                 ", serviceType='" + serviceType + '\'' +
+                ", customer=" + customer +
                 '}';
     }
 }

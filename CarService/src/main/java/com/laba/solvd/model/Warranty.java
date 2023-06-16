@@ -8,15 +8,16 @@ public class Warranty {
     private String type;
     private Date startDate;
     private Date endDate;
-    private int carsId;
+    private Car car;
 
-    public Warranty(int id, String type, Date startDate, Date endDate, int carsId) {
+    public Warranty(int id, String type, Date startDate, Date endDate, Car car) {
         this.id = id;
         this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.carsId = carsId;
+        this.car = car;
     }
+
     public Warranty(){
 
     }
@@ -53,12 +54,12 @@ public class Warranty {
         this.endDate = endDate;
     }
 
-    public int getCarsId() {
-        return carsId;
+    public Car getCar() {
+        return car;
     }
 
-    public void setCarsId(int carsId) {
-        this.carsId = carsId;
+    public void setCar(Car car) {
+        this.car = car;
     }
 
     @Override
@@ -66,12 +67,12 @@ public class Warranty {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Warranty warranty = (Warranty) o;
-        return getId() == warranty.getId() && getCarsId() == warranty.getCarsId() && Objects.equals(getType(), warranty.getType()) && Objects.equals(getStartDate(), warranty.getStartDate()) && Objects.equals(getEndDate(), warranty.getEndDate());
+        return getId() == warranty.getId() && Objects.equals(getType(), warranty.getType()) && Objects.equals(getStartDate(), warranty.getStartDate()) && Objects.equals(getEndDate(), warranty.getEndDate()) && Objects.equals(getCar(), warranty.getCar());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getType(), getStartDate(), getEndDate(), getCarsId());
+        return Objects.hash(getId(), getType(), getStartDate(), getEndDate(), getCar());
     }
 
     @Override
@@ -81,7 +82,7 @@ public class Warranty {
                 ", type='" + type + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", carsId=" + carsId +
+                ", car=" + car +
                 '}';
     }
 }
