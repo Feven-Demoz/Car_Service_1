@@ -1,5 +1,5 @@
 driver=com.mysql.cj.jdbc.Driver
 url=jdbc:mysql://localhost:3306/carservice
 username=root
-password=password
-poolsize=5
+password=Feven123456789
+poolSize=5

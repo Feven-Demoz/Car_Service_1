@@ -10,12 +10,14 @@ public class Warranty {
     private Date endDate;
     private Car car;
 
-    public Warranty(int id, String type, Date startDate, Date endDate, Car car) {
+
+    public Warranty(int id, String type, Date startDate, Date endDate,Car car) {
         this.id = id;
         this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
         this.car = car;
+
     }
 
     public Warranty(){

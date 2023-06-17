@@ -61,10 +61,6 @@ public class Part {
         this.supplies = supplies;
     }
 
-//public void addSupply(supply supply) {
-//    supplies.add(supply);
-//    supply.setPart(this);
-//    }
 
 
     @Override

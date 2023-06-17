@@ -3,33 +3,35 @@ package com.laba.solvd.model;
 import java.util.Objects;
 
 public class ServiceRecordPart {
-    private int partsId;
-    private int serviceRecordId;
-    private int countRecord;
 
-    public ServiceRecordPart(int partsId, int serviceRecordId, int countRecord) {
-        this.partsId = partsId;
-        this.serviceRecordId = serviceRecordId;
+    private int countRecord;
+    private Part part;
+    private ServiceRecord serviceRecord;
+
+    public ServiceRecordPart(int countRecord, Part part, ServiceRecord serviceRecord) {
         this.countRecord = countRecord;
+        this.part = part;
+        this.serviceRecord = serviceRecord;
     }
+
     public ServiceRecordPart (){
 
     }
 
-    public int getPartsId() {
-        return partsId;
+    public Part getPart() {
+        return part;
     }
 
-    public void setPartsId(int partsId) {
-        this.partsId = partsId;
+    public void setPart(Part part) {
+        this.part = part;
     }
 
-    public int getServiceRecordId() {
-        return serviceRecordId;
+    public ServiceRecord getServiceRecord() {
+        return serviceRecord;
     }
 
-    public void setServiceRecordId(int serviceRecordId) {
-        this.serviceRecordId = serviceRecordId;
+    public void setServiceRecord(ServiceRecord serviceRecord) {
+        this.serviceRecord = serviceRecord;
     }
 
     public int getCountRecord() {
@@ -45,20 +47,20 @@ public class ServiceRecordPart {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ServiceRecordPart that = (ServiceRecordPart) o;
-        return getPartsId() == that.getPartsId() && getServiceRecordId() == that.getServiceRecordId() && getCountRecord() == that.getCountRecord();
+        return getCountRecord() == that.getCountRecord() && Objects.equals(getPart(), that.getPart()) && Objects.equals(getServiceRecord(), that.getServiceRecord());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getPartsId(), getServiceRecordId(), getCountRecord());
+        return Objects.hash(getCountRecord(), getPart(), getServiceRecord());
     }
 
     @Override
     public String toString() {
         return "ServiceRecordPart{" +
-                "partsId=" + partsId +
-                ", serviceRecordId=" + serviceRecordId +
-                ", countRecord=" + countRecord +
+                "countRecord=" + countRecord +
+                ", part=" + part +
+                ", serviceRecord=" + serviceRecord +
                 '}';
     }
 }

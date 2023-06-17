@@ -23,15 +23,6 @@ public class Customer {
         this.invoices = invoices;
     }
 
-
-    //    public Customer(int id, String firstName, String lastName, String phoneNumber, String address) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.phoneNumber = phoneNumber;
-//        this.address = address;
-
-  //  }
      public Customer(){
 
      }

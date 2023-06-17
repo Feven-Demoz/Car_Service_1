@@ -8,15 +8,16 @@ public class Payment {
     private Date date;
     private String paymentMethod;
     private double amount;
-    private int invoicesId;
+    private Invoice invoice;
 
-    public Payment(int id, Date date, String paymentMethod, double amount, int invoicesId) {
+    public Payment(int id, Date date, String paymentMethod, double amount, Invoice invoice) {
         this.id = id;
         this.date = date;
         this.paymentMethod = paymentMethod;
         this.amount = amount;
-        this.invoicesId = invoicesId;
+        this.invoice = invoice;
     }
+
     public Payment(){
 
     }
@@ -53,12 +54,12 @@ public class Payment {
         this.amount = amount;
     }
 
-    public int getInvoicesId() {
-        return invoicesId;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setInvoicesId(int invoicesId) {
-        this.invoicesId = invoicesId;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
     @Override
@@ -66,12 +67,12 @@ public class Payment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Payment payment = (Payment) o;
-        return getId() == payment.getId() && Double.compare(payment.getAmount(), getAmount()) == 0 && getInvoicesId() == payment.getInvoicesId() && Objects.equals(getDate(), payment.getDate()) && Objects.equals(getPaymentMethod(), payment.getPaymentMethod());
+        return getId() == payment.getId() && Double.compare(payment.getAmount(), getAmount()) == 0 && Objects.equals(getDate(), payment.getDate()) && Objects.equals(getPaymentMethod(), payment.getPaymentMethod()) && Objects.equals(getInvoice(), payment.getInvoice());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getDate(), getPaymentMethod(), getAmount(), getInvoicesId());
+        return Objects.hash(getId(), getDate(), getPaymentMethod(), getAmount(), getInvoice());
     }
 
     @Override
@@ -81,7 +82,7 @@ public class Payment {
                 ", date=" + date +
                 ", paymentMethod='" + paymentMethod + '\'' +
                 ", amount=" + amount +
-                ", invoicesId=" + invoicesId +
+                ", invoice=" + invoice +
                 '}';
     }
 }

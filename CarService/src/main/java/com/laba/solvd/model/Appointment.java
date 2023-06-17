@@ -10,13 +10,16 @@ public class Appointment {
     private String serviceType;
     private Customer customer;
 
-
     public Appointment(int id, int carId, Date appointmentDate, String serviceType, Customer customer) {
         this.id = id;
         this.carId = carId;
         this.appointmentDate = appointmentDate;
         this.serviceType = serviceType;
         this.customer = customer;
+    }
+
+    public Appointment(){
+
     }
 
     public int getId() {
@@ -35,14 +38,6 @@ public class Appointment {
         this.carId = carId;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public Date getAppointmentDate() {
         return appointmentDate;
     }
@@ -57,6 +52,14 @@ public class Appointment {
 
     public void setServiceType(String serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
